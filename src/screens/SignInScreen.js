@@ -8,11 +8,33 @@ import { signIn } from '../utils/auth';
 const SignInScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorEmail, setErrorEmail] = useState('')
+    const [errorPassword, setErrorPassword] = useState('')
+    const [showPasword, setShowPassword] = useState(false);
+
+    const validar = () => {
+        let error = false
+        setErrorEmail('')
+        setErrorPassword('')
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!re.test(String(email).toLowerCase())) {
+          setErrorEmail("Ingrese un correo válido")
+          error = true
+        }
+        if (password == '') {
+          setErrorPassword("Ingrese una contraseña")
+          error = true
+        }
+        return !error
+      }
 
     const handleOnSubmit = () => {
-        if (email != '' && password != '') {
-            signIn(email, password);
+        if (validar()) {
+            if (email != '' && password != '') {
+                signIn(email, password);
+            }
         }
+        
     };
     return (
         <SafeAreaView
@@ -29,16 +51,26 @@ const SignInScreen = ({ navigation }) => {
 
             {/*Email */}
             <FormInput labelText="Email" placeholderText="Ingrese su Email"
-                onChangeText={value => setEmail(value)}
-                value={email}
+                onChangeText={value => {
+                    setEmail(value)
+                    setErrorEmail('')
+                  }}
+                value={email.trimStart()}
                 keyboardType={'email-address'}
-            />
+                errorMessage={errorEmail}
+                />
+                <Text style={styles.errorMessage}>{errorEmail}</Text>
             {/*Password */}
             <FormInput labelText="Password" placeholderText="Ingrese su Password"
-                onChangeText={value => setPassword(value)}
-                value={password}
+                onChangeText={value => {
+                    setPassword(value)
+                    setErrorPassword('')
+                  }}
+                value={password.trimStart()}
                 secureTextEntry={true}
+                errorMessage={errorPassword}
             />
+            <Text style={styles.errorMessage}>{errorPassword}</Text>
             {/*Button */}
             <FormButton
                 labelText='Login'
@@ -55,7 +87,7 @@ const SignInScreen = ({ navigation }) => {
             <View style={styles.styleFooter}>
                 <Text>Olvido la contraseña? </Text>
                 <Text style={styles.styleFooterText}
-                    onPress={() => navigation.navigate('SignUpScreen')}>Recuperar</Text>
+                    onPress={() => navigation.navigate('Reestablish')}>Recuperar</Text>
             </View>
 
         </SafeAreaView>

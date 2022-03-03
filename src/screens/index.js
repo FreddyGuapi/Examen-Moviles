@@ -4,6 +4,8 @@ import SignUpScreen from "./SignUpScreen";
 import CreateQuizScreen from "./CreateQuizScreen";
 import AddQuestionScreen from "./AddQuestionScreen";
 import PlayQuizScreen from "./PlayQuizScreen";
+import Reestablish from "./Reestablish";
+import DatailScreen from "./DatailScreen";
 
 export {
     HomeScreen,
@@ -11,6 +13,8 @@ export {
     SignUpScreen,
     CreateQuizScreen,
     AddQuestionScreen,
-    PlayQuizScreen
+    PlayQuizScreen,
+    Reestablish,
+    DatailScreen
     
 };

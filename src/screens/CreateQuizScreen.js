@@ -37,7 +37,7 @@ const CreateQuizScreen = ({navigation}) => {
                 labelText='Titulo'
                 placeholderText='Ingrese el titulo del Quiz'
                 onchangeText={val => setTitle(val)}
-                value={title}
+                value={title.trimStart()}
             />
 
             {/*Quiz Description */}
@@ -45,7 +45,7 @@ const CreateQuizScreen = ({navigation}) => {
                 labelText='Descripción'
                 placeholderText='Ingrese una descripción'
                 onchangeText={val => setDescription(val)}
-                value={description}
+                value={description.trimStart()}
             />
 
             {/*Buton Save Quiz */}

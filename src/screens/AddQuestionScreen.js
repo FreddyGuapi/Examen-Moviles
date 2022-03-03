@@ -32,6 +32,7 @@ const AddQuestionScreen = ({ navigation, route }) => {
       optionThree == '' ||
       optionFour == '' 
     ) {
+      ToastAndroid.show('Es necesario llenar todos los campos', ToastAndroid.SHORT);
       return;
     }
     let currentQuestionId = Math.floor(
@@ -53,7 +54,9 @@ const AddQuestionScreen = ({ navigation, route }) => {
     await createQuestion(currentQuizId, currentQuestionId, {
       question: question,
       correct_answer: correctAnswer,
-      incorrect_answer: [optionTwo, optionThree, optionFour],
+      incorrect_answer: optionTwo,
+      incorrect_answer1: optionThree,
+      incorrect_answer2:  optionFour,
       imageUrl: imageUrl,
     });
     ToastAndroid.show('Pregunta Guardada', ToastAndroid.SHORT);
@@ -97,7 +100,7 @@ const AddQuestionScreen = ({ navigation, route }) => {
             labelText='Pregunta'
             placeholderText='Ingrese una Pregunta'
             onchangeText={val => setQuestion(val)}
-            value={question}
+            value={question.trimStart()}
           />
           {/*Image upload */}
 {
@@ -122,24 +125,24 @@ const AddQuestionScreen = ({ navigation, route }) => {
           {/*Options */}
           <View style={{ marginTop: 30 }}>
             <FormInput
-              labelText='Respuesta correcta'
+              labelText='Opción 1 Respuesta correcta'
               onchangeText={val => setCorrectAnswer(val)}
-              value={correctAnswer}
+              value={correctAnswer.trimStart()}
             />
             <FormInput
               labelText='Opción 2'
               onchangeText={val => setOptionsTwo(val)}
-              value={optionTwo}
+              value={optionTwo.trimStart()}
             />
             <FormInput
               labelText='Opción 3'
               onchangeText={val => setOptionThree(val)}
-              value={optionThree}
+              value={optionThree.trimStart()}
             />
             <FormInput
               labelText='Opción 4'
               onchangeText={val => setOptionFour(val)}
-              value={optionFour}
+              value={optionFour.trimStart()}
             />
 
             {/*Buttons */}
@@ -178,7 +181,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   titleText: {
-    fontSize: 20,
+    fontSize: 17,
     textAlign: 'center',
     color: COLORS.black,
   },

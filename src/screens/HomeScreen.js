@@ -48,12 +48,19 @@ style={{paddingVertical:20,}}
 renderItem={({item: quiz})=>(
   <View style={styles.styleList}>
     <View style={{flex:1, paddingRight:10}}>
+      <TouchableOpacity
+      onPress={()=>{
+        navigation.navigate('DatailScreen',{
+          quizId: quiz.id,
+        })
+      }}>
       <Text style={{fontSize:18, color:COLORS.black}}>{quiz.title}</Text>
       {
         quiz.description != '' ? (
           <Text style={{opacity:0.5}}>{quiz.description}</Text>
         ):null
       }
+      </TouchableOpacity>
     </View>
 <TouchableOpacity style={styles.stylePlay} 
 onPress={()=>{

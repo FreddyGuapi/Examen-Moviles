@@ -9,16 +9,50 @@ const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorEmail, setErrorEmail] = useState('')
+  const [errorPassword, setErrorPassword] = useState('')
+  const [errorConfirmarPassword, setErrorConfirmarPassword] = useState('')
+  const [showPasword, setShowPassword] = useState(false);
+
+
+  const validar = () => {
+    let error = false
+    setErrorEmail('')
+    setErrorPassword('')
+    setErrorConfirmarPassword(null)
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!re.test(String(email).toLowerCase())) {
+      setErrorEmail("Ingrese un correo válido")
+      error = true
+    }
+    if (password == '') {
+      setErrorPassword("Ingrese una contraseña")
+      error = true
+    }
+    if (confirmPassword == '') {
+      setErrorConfirmarPassword("Confirme la contraseña")
+      error = true
+    }
+    return !error
+  }
 
   const handleOnSubmit = () => {
-    if (email != '' && password != '' && confirmPassword != '') {
-      if (password == confirmPassword) {
-        signUp(email, password);
-      } else {
-        ToastAndroid.show('Las contraseñas no son las mismas', ToastAndroid.SHORT);
+    if (validar()) {
+      if (email != '' && password != '' && confirmPassword != '') {
+        if (password == confirmPassword) {
+          if (password.length >= 6) {
+            signUp(email, password);
+          } else {
+            Alert.alert('La contraseña debe tener como mínimo 6 caracteres')
+          }
+        } else {
+          Alert.alert('Las contraseñas ingresadas no coinciden vuelva a intentarlo');
+        }
       }
     }
   };
+
+
   return (
     <SafeAreaView
       style={styles.content}>
@@ -26,6 +60,7 @@ const SignUpScreen = ({ navigation }) => {
       {/*Logo */}
       <Image source={require('../components/img/Registro.png')}
         style={{
+          marginTop:-30,
           alignItems: 'center',
           width: '50%',
           height: '25%',
@@ -34,26 +69,40 @@ const SignUpScreen = ({ navigation }) => {
       <FormInput
         labelText='Email'
         placeholderText='Ingrese su Email'
-        onchangeText={value => setEmail(value)}
-        value={email}
+        onchangeText={value => {setEmail(value)
+          setErrorEmail('')}
+        }
+        value={email.trimStart()}
         keyboardType={'email-address'}
+        errorMessage={errorEmail}
       />
+      <Text style={styles.errorMessage}>{errorEmail}</Text>
       {/*Password */}
       <FormInput
         labelText='Password'
         placeholderText='Ingrese su Password'
-        onchangeText={value => setPassword(value)}
-        value={password}
+        onchangeText={value => {
+          setPassword(value)
+          setErrorPassword('')
+        }}
+        value={password.trimStart()}
         secureTextEntry={true}
+        errorMessage={errorPassword}
       />
+      <Text style={styles.errorMessage}>{errorPassword}</Text>
       {/*ConfirmPassword */}
       <FormInput
         labelText='Confirmar Password'
         placeholderText='Ingrese su Password'
-        onchangeText={value => setConfirmPassword(value)}
-        value={confirmPassword}
+        onchangeText={value => {
+          setConfirmPassword(value)
+          setErrorConfirmarPassword('')
+        }}
+        value={confirmPassword.trimStart()}
         secureTextEntry={true}
+        errorConfirmarPassword={errorConfirmarPassword}
       />
+      <Text style={styles.errorMessage}>{errorConfirmarPassword}</Text>
       {/*Submit */}
       <FormButton
         labelText='Registrar'
