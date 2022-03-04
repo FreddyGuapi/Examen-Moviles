@@ -76,7 +76,9 @@ Eliminacion de Quiz
 
 
 # Tienda en la que se encuentra la aplicación
-La aplicación fue publicada en la tienda de " " y si la aplicación aún no se encuentra disponible en la tienda por motivos de revisión y
+La aplicación fue publicada en la tienda de " uptodown " y si la aplicación aún no se encuentra disponible en la tienda por motivos de revisión y
 aprobación por parte de la tienda, el apk de la aplicación se encuentra en la carpeta con el nombre "APK"
+
+![image](https://user-images.githubusercontent.com/27876563/156838061-1506fd31-d599-48c3-afa5-feaaa40eb9d5.png)
 
 
