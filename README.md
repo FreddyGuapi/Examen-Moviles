@@ -31,6 +31,6 @@ se los puede crear, ver o modificar posterior al registrarse en la aplicación.
 
 # Tienda en la que se encuentra la aplicación
 La aplicación fue publicada en la tienda de " " y si la aplicación aún no se encuentra disponible en la tienda por motivos de revisión y
-aprobación por parte de la tienda, el apk de la aplicación se lo puede descargar en la siguiente ruta "android\app\build\outputs\apk\release"
+aprobación por parte de la tienda, el apk de la aplicación se encuentra en la carpeta con el nombre "APK"
 
 
