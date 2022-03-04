@@ -25,6 +25,8 @@ se los puede crear, ver o modificar posterior al registrarse en la aplicación.
 
 # Video explicativo del código
 
+[Video Código ](https://youtu.be/IG-b09p2TeI)
+
 # Video explicativo de la aplicación
 
 # Imagenes de la aplicación
