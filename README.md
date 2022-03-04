@@ -29,6 +29,8 @@ se los puede crear, ver o modificar posterior al registrarse en la aplicación.
 
 # Video explicativo de la aplicación
 
+https://www.youtube.com/watch?v=wjYEIIZ0Whw
+
 # Imagenes de la aplicación
 Registro en la aplicacion QuizApp
 
