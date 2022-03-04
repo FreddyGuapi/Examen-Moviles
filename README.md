@@ -61,6 +61,19 @@ Recuperacion de contraseña( mediante el correo registrado)
 
 ![image](https://user-images.githubusercontent.com/27876563/156820473-7fd80807-05ea-445f-8688-727ffd265519.png)
 
+Edicion de Quiz de tema y descripcion
+
+![image](https://user-images.githubusercontent.com/27876563/156832105-57ccbbb3-524d-4a15-9a63-7297c958524b.png)
+
+
+Eliminacion de Quiz 
+
+![image](https://user-images.githubusercontent.com/27876563/156832176-a0c13f68-cdef-423d-b903-e26858ef6a35.png)
+
+![image](https://user-images.githubusercontent.com/27876563/156832244-2709715b-156e-44dd-95bb-a81212329c8c.png)
+
+![image](https://user-images.githubusercontent.com/27876563/156832212-1712e9b1-bbbc-4ff4-9670-b465963632e9.png)
+
 
 # Tienda en la que se encuentra la aplicación
 La aplicación fue publicada en la tienda de " " y si la aplicación aún no se encuentra disponible en la tienda por motivos de revisión y
