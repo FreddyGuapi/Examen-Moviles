@@ -8,13 +8,13 @@ se los puede crear, ver o modificar posterior al registrarse en la aplicación.
 
 ## Integrante
 - Freddy Guapi
-- Josse Borja
+- Jose Borja
 
 # Responsabilidades
 | Integrante | Actividad |
 | :---         |     :---:      |  
 | Freddy Guapi | git status     | 
-| Josse Borja  | git diff       |
+| Jose Borja   | git diff       |
 
 # Instalación 
 1.- Clonar repo y ejecutar "npm install"
