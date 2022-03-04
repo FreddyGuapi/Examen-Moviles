@@ -13,8 +13,8 @@ se los puede crear, ver o modificar posterior al registrarse en la aplicación.
 # Responsabilidades
 | Integrante | Actividad |
 | :---         |     :---:      |  
-| Freddy Guapi | git status     | 
-| Jose Borja   | git diff       |
+| Freddy Guapi | Crear Quiz, Registro de usuario y Login | 
+| Jose Borja   | Recuperar cuenta, Eliminar y modificar Quiz.|
 
 # Instalación 
 1.- Clonar repo y ejecutar "npm install"
